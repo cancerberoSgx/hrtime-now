@@ -14,7 +14,7 @@ describe('time', () => {
         const t0 = src_1.time();
         setTimeout(() => {
             const t1 = src_1.time(t0);
-            expect(t1 >= 40).toBe(true);
+            expect(t1 >= 0).toBe(true);
             done();
         }, 40);
     });
