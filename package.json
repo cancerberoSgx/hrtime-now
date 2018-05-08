@@ -1,0 +1,30 @@
+{
+  "name": "hrtime-now",
+  "version": "1.0.0",
+  "description": "Friendly API for `process.hrtime`",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
+  "scripts": {
+    "test": "ts-node -r tsconfig-paths/register node_modules/jasmine/bin/jasmine",
+    "doc": "typedoc --theme markdown --excludeNotExported --out docs src",
+    "prepublish": "tsc",
+    "build": "tsc"
+  },
+  "keywords": [
+    "performance.now",
+    "hrtime",
+    "time"
+  ],
+  "author": "Sebastian Gurin",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jasmine": "^2.8.7",
+    "@types/node": "^10.0.4",
+    "jasmine": "^3.1.0",
+    "ts-node": "^6.0.3",
+    "tsconfig-paths": "^3.3.2",
+    "typedoc": "^0.11.1",
+    "typedoc-plugin-markdown": "^1.1.7",
+    "typescript": "^2.8.3"
+  }
+}
