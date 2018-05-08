@@ -9,11 +9,6 @@
     "removeComments": false,      
     "esModuleInterop": true,
     "declaration": true,
-    "sourceMap": true,
-    "baseUrl": "."
-  },
-  "exclude": [
-    "spec/assets",
-    "dist"
-  ]
+    "sourceMap": true
+  }
 }

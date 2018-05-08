@@ -31,6 +31,13 @@ const t2 = time(t1)
 console.log(`Task took ${t2}` milliseconds`)
 ```
 
+**Note: ** If you are not using ecma6 modules, you can requirit `now()` like this: 
+
+```javascript
+const now = require('hrtime-now').now
+```
+
+
 ## API documentation
 
 https://github.com/cancerberoSgx/hrtime-now/blob/master/docs/modules/_index_.md

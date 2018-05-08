@@ -8,7 +8,7 @@
     "test": "ts-node -r tsconfig-paths/register node_modules/jasmine/bin/jasmine",
     "doc": "typedoc --theme markdown --excludeNotExported --out docs src",
     "build": "tsc",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "clean": "rm -rf node_modules package-lock.json",
     "all": "npm run clean && npm i && npm run build && npm test"
   },
@@ -23,6 +23,7 @@
     "@types/jasmine": "^2.8.7",
     "@types/node": "^10.0.4",
     "jasmine": "^3.1.0",
+    "shelljs": "^0.8.2",
     "ts-node": "^6.0.3",
     "tsconfig-paths": "^3.3.2",
     "typedoc": "^0.11.1",

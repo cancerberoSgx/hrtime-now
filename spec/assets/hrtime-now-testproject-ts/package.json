@@ -1,0 +1,17 @@
+{
+  "name": "hrtime-now-testproject-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^10.0.4",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {}
+}
