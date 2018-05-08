@@ -9,7 +9,8 @@ npm install --save hrtime-now
 ```
 
 ## Usage
-Using `now()` : 
+
+### Using `now()` : 
 
 ```javascript
 import {now} from 'hrtime-now'
@@ -20,6 +21,8 @@ console.log(`the task took ${now()-t0}` milliseconds`)
 
 **Important**: the number returned by `now` doesn't mean anything special, i.e, is not `performance.now()` !
 
+### Using `time()` : 
+
 ```javascript
 import {time} from 'hrtime-now'
 const t1 = time()
@@ -27,3 +30,7 @@ const t1 = time()
 const t2 = time(t1)
 console.log(`Task took ${t2}` milliseconds`)
 ```
+
+## API documentation
+
+https://github.com/cancerberoSgx/hrtime-now/blob/master/docs/modules/_index_.md

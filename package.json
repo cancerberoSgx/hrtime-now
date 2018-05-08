@@ -7,8 +7,10 @@
   "scripts": {
     "test": "ts-node -r tsconfig-paths/register node_modules/jasmine/bin/jasmine",
     "doc": "typedoc --theme markdown --excludeNotExported --out docs src",
-    "prepublish": "tsc",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "npm run build",
+    "clean": "rm -rf node_modules package-lock.json",
+    "all": "npm run clean && npm i && npm run build && npm test"
   },
   "keywords": [
     "performance.now",
