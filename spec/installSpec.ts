@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import { cd, cp, exec, ls, mkdir, rm, tempdir, config, pwd } from 'shelljs';
 
-config.silent = true
+// config.silent = true
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000
 
 describe('npm instal of this packed project in several technologies', () => {

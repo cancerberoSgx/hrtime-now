@@ -29,6 +29,9 @@
     "typedoc-plugin-markdown": "^1.1.7",
     "typescript": "^2.8.3"
   },
+  "dependencies": {
+    "pretty-ms": "^3.1.0"
+  },
   "repository": "https://github.com/cancerberoSgx/hrtime-now",
   "readme": "README.md"
 }

@@ -14,8 +14,8 @@ describe('time', () => {
     setTimeout(() => {
       const duration = time(t0)
       // console.log(duration/1000000);      
-      expect(duration/1000000 >= 40).toBe(true)
+      expect(duration/1000000).toBeGreaterThanOrEqual(100)
       done()
-    }, 40);
+    }, 100);
   })
 })

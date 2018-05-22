@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = require("path");
 const shelljs_1 = require("shelljs");
-shelljs_1.config.silent = true;
+// config.silent = true
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
 describe('npm instal of this packed project in several technologies', () => {
     it('npm install from npmjs.org should work for user js projects', () => {

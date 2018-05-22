@@ -21,6 +21,19 @@ console.log(`the task took ${(now()-t0)/1000000} milliseconds`)
 
 **Important**: the number returned by `now` doesn't mean anything special, i.e, is not `performance.now()` !
 
+### High level pretty times with timeFrom()
+
+Pretty print the difference between given time (previouslytaken with `now()` and current time). Example: 
+
+```javascript
+var t0 = now()
+something()
+log(`something took ${timeFrom(t0)}`)
+```
+
+Could print : *"somehing took 1m 29s"*
+
+
 ### Using `time()` : 
 
 ```javascript
@@ -47,4 +60,4 @@ console.log(`the task took ${(now()-t0)/1000} milliseconds`)
 
 ## API documentation
 
-https://github.com/cancerberoSgx/hrtime-now/blob/master/docs/modules/_index_.md
+[API](https://github.com/cancerberoSgx/hrtime-now/blob/master/docs/modules/_index_.md)

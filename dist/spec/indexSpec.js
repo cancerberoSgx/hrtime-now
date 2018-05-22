@@ -5,18 +5,20 @@ describe('time', () => {
     it('now', (done) => {
         const t0 = src_1.now();
         setTimeout(() => {
-            const t1 = src_1.now();
-            expect(t1 - t0 >= 40).toBe(true);
+            const duration = src_1.now() - t0;
+            // console.log(duration/1000000);
+            expect(duration / 1000000 >= 40).toBe(true);
             done();
         }, 40);
     });
     it('time', (done) => {
         const t0 = src_1.time();
         setTimeout(() => {
-            const t1 = src_1.time(t0);
-            expect(t1 >= 0).toBe(true);
+            const duration = src_1.time(t0);
+            // console.log(duration/1000000);      
+            expect(duration / 1000000).toBeGreaterThanOrEqual(100);
             done();
-        }, 40);
+        }, 100);
     });
 });
 //# sourceMappingURL=indexSpec.js.map
