@@ -46,4 +46,23 @@ function timeFrom(ns) {
     return pretty_ms_1.default((exports.now() - ns) / 1000000);
 }
 exports.timeFrom = timeFrom;
+/**
+ * Example:
+ * ```javascript
+ * const log = (msg)=>((prettyMs)=>console.log(`${msg} took ${prettyMs}`))
+ * fromNow(()=>this.doHeavyTask_4(options), log('heavy-task-subsection-4'))
+ * ```
+ * @param work
+ * @param onEnd
+ */
+function fromNow(work, onEnd) {
+    const t0 = exports.now();
+    const result = work();
+    const t1 = exports.now();
+    const ms = (t1 - t0) / 1000000;
+    onEnd(pretty_ms_1.default(ms), ms, t0, t1);
+    return result;
+}
+exports.fromNow = fromNow;
+//TODO: the same as fromNow but async - promises
 //# sourceMappingURL=index.js.map

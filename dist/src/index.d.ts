@@ -35,3 +35,13 @@ export declare const now: () => number;
  * That could print something like *somehing took 1m 29s"
  */
 export declare function timeFrom(ns: number): string;
+/**
+ * Example:
+ * ```javascript
+ * const log = (msg)=>((prettyMs)=>console.log(`${msg} took ${prettyMs}`))
+ * fromNow(()=>this.doHeavyTask_4(options), log('heavy-task-subsection-4'))
+ * ```
+ * @param work
+ * @param onEnd
+ */
+export declare function fromNow<T>(work: () => T, onEnd: (prettyMs: string, msElapsed: number, t0: number, t1: number) => any): T;
