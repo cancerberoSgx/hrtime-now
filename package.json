@@ -1,6 +1,6 @@
 {
   "name": "hrtime-now",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Friendly API for `process.hrtime`",
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
