@@ -38,10 +38,20 @@ export declare function timeFrom(ns: number): string;
 /**
  * Example:
  * ```javascript
- * const log = (msg)=>((prettyMs)=>console.log(`${msg} took ${prettyMs}`))
- * fromNow(()=>this.doHeavyTask_4(options), log('heavy-task-subsection-4'))
+ * const result = fromNow(
+ *   ()=>compileSass('*.scss),
+ *   t=>console.log(`sass compilation took ${t}`)
+ * )
+ * ```
+ * or implement a logger function factory and don't worry about messages anymore:
+ *
+ * ```js
+ * const logTime = (fn) => fromNow(fn, (t, hint) => console.log(`Function ${hint} took ${t}`))
+ * // use logTime() instead of fromNow from now on without worrying to pass any msg
+ * const result = logTime(() => compileSass('*.scss'))
+ * // will log something like "Function ()=>compileSass took 1s"
  * ```
  * @param work
  * @param onEnd
  */
-export declare function fromNow<T>(work: () => T, onEnd: (prettyMs: string, msElapsed: number, t0: number, t1: number) => any): T;
+export declare function fromNow<T>(work: () => T, onEnd: (prettyMs: string, fnHint: string, msElapsed: number, t0: number, t1: number) => any, fnHintBuilder?: (fn: typeof work) => string): T;

@@ -1,16 +1,16 @@
 {
   "name": "hrtime-now",
-  "version": "1.0.4",
-  "description": "Friendly API for `process.hrtime`",
+  "version": "1.0.5",
+  "description": "Friendly API for `process.hrtime` with some high level - date-pretty format utilities. Ideal to measure how long it take to run a function /fragment of code.",
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
   "scripts": {
     "test": "ts-node node_modules/jasmine/bin/jasmine",
-    "doc": "typedoc --theme markdown --excludeNotExported --out docs src",
+    "doc": "rm -rf docs; typedoc --theme markdown --excludeNotExported --out docs src",
     "build": "tsc",
     "prepare": "npm run build",
     "clean": "rm -rf node_modules package-lock.json",
-    "all": "npm run clean && npm i && npm run build && npm test"
+    "all": "npm run clean && npm i && npm run build && npm test && npm run doc"
   },
   "keywords": [
     "performance.now",

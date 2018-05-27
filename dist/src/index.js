@@ -49,20 +49,37 @@ exports.timeFrom = timeFrom;
 /**
  * Example:
  * ```javascript
- * const log = (msg)=>((prettyMs)=>console.log(`${msg} took ${prettyMs}`))
- * fromNow(()=>this.doHeavyTask_4(options), log('heavy-task-subsection-4'))
+ * const result = fromNow(
+ *   ()=>compileSass('*.scss),
+ *   t=>console.log(`sass compilation took ${t}`)
+ * )
+ * ```
+ * or implement a logger function factory and don't worry about messages anymore:
+ *
+ * ```js
+ * const logTime = (fn) => fromNow(fn, (t, hint) => console.log(`Function ${hint} took ${t}`))
+ * // use logTime() instead of fromNow from now on without worrying to pass any msg
+ * const result = logTime(() => compileSass('*.scss'))
+ * // will log something like "Function ()=>compileSass took 1s"
  * ```
  * @param work
  * @param onEnd
  */
-function fromNow(work, onEnd) {
+function fromNow(work, onEnd, fnHintBuilder = defaultFnHintBuilder) {
     const t0 = exports.now();
     const result = work();
     const t1 = exports.now();
     const ms = (t1 - t0) / 1000000;
-    onEnd(pretty_ms_1.default(ms), ms, t0, t1);
+    onEnd(pretty_ms_1.default(ms), defaultFnHintBuilder(work), ms, t0, t1);
     return result;
 }
 exports.fromNow = fromNow;
+const defaultFnHintBuilder = (fn) => {
+    let fnHint = fn.toString();
+    fnHint = fnHint.substring(0, Math.min(fnHint.length, fnHintTrunc));
+    // TODO: trunk with a regex till the end of the function name if any
+    return fnHint;
+};
+const fnHintTrunc = 20;
 //TODO: the same as fromNow but async - promises
 //# sourceMappingURL=index.js.map
