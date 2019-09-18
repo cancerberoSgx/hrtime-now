@@ -1,6 +1,6 @@
 {
   "name": "hrtime-now",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Friendly API for `process.hrtime` with some high level - date-pretty format utilities. Ideal to measure how long it take to run a function /fragment of code.",
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
