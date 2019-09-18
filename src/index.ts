@@ -1,3 +1,5 @@
+
+import prettyMs from 'pretty-ms'
 /**
  * Usage:
  *
@@ -38,7 +40,6 @@ export const now = (): number => {
 
 
 
-import prettyMs from 'pretty-ms'
 /**
  * Pretty print the difference between given time (previouslytaken with `now()` and current time). 
  * Example: 
@@ -73,13 +74,13 @@ export function timeFrom(ns: number): string {
  * @param work 
  * @param onEnd 
  */
-export function fromNow<T>(
-  work: ()=>T, 
+export async function fromNow<T>(
+  work: ()=>Promise<T>, 
   onEnd: (prettyMs:string, fnHint: string, msElapsed: number, t0: number, t1: number )=>any,  
   fnHintBuilder: (fn: typeof work)=>string = defaultFnHintBuilder
-):T {
+):Promise<T> {
   const t0 = now()
-  const result = work()
+  const result = await work()
   const t1 = now()
   const ms = (t1-t0) / 1000000
   onEnd(prettyMs(ms), defaultFnHintBuilder(work), ms, t0, t1)

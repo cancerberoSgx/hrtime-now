@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const pretty_ms_1 = __importDefault(require("pretty-ms"));
 function time(input) {
     if (!input) {
         return process.hrtime();
@@ -29,7 +30,6 @@ const t0 = time();
 exports.now = () => {
     return time(t0);
 };
-const pretty_ms_1 = __importDefault(require("pretty-ms"));
 /**
  * Pretty print the difference between given time (previouslytaken with `now()` and current time).
  * Example:
@@ -65,9 +65,9 @@ exports.timeFrom = timeFrom;
  * @param work
  * @param onEnd
  */
-function fromNow(work, onEnd, fnHintBuilder = defaultFnHintBuilder) {
+async function fromNow(work, onEnd, fnHintBuilder = defaultFnHintBuilder) {
     const t0 = exports.now();
-    const result = work();
+    const result = await work();
     const t1 = exports.now();
     const ms = (t1 - t0) / 1000000;
     onEnd(pretty_ms_1.default(ms), defaultFnHintBuilder(work), ms, t0, t1);

@@ -1,20 +1,20 @@
+[hrtime-now](README.md) › [Globals](globals.md)
 
-hrtime-now
-==========
+# hrtime-now
+
+# hrtime-now
 
 Friendly API for `process.hrtime` with some high level - date-pretty format utilities. Ideal to measure how long it take to run a function /fragment of code.
 
-Install
--------
+## Install
 
 ```sh
 npm install --save hrtime-now
 ```
 
-Usage
------
+## Usage
 
-### Basic: Using `now()` :
+### Basic: Using `now()` : 
 
 ```javascript
 import {now} from 'hrtime-now'
@@ -24,10 +24,9 @@ console.log(`the task took ${(now()-t0)/1000000} milliseconds`)
 ```
 
 **Important**: the number returned by `now` doesn't mean anything special, i.e, is not `performance.now()` !
-
 ### High level: pretty times with timeFrom()
 
-Pretty print the difference between given time (previouslytaken with `now()` and current time). Example:
+Pretty print the difference between given time (previouslytaken with `now()` and current time). Example: 
 
 ```javascript
 var t0 = now()
@@ -35,7 +34,7 @@ something()
 log(`something took ${timeFrom(t0)}`)
 ```
 
-Could print : _"somehing took 1m 29s"_
+Could print : *"somehing took 1m 29s"*
 
 ### High level: single statement with fromNow()
 
@@ -44,8 +43,7 @@ Suppose you have a (synchronous) statement like the following
 ```js
 const result = compileSass('./src/**/*.scss')
 ```
-
-You want to measure how long it takes:
+You want to measure how long it takes: 
 
 ```js
 const result = fromNow(
@@ -54,8 +52,7 @@ const result = fromNow(
 )
 ```
 
-or create a log function factory and don't worry about msgs:
-
+or create a log function factory and don't worry about msgs: 
 ```js
 const logTime = (fn) => fromNow(fn, (t, hint) => console.log(`Function ${hint} took ${t}`))
 // use logTime() instead of fromNow from now on without worrying to pass any msg 
@@ -63,7 +60,7 @@ const result = logTime(() => compileSass('./src/**/*.scss'))
 // will log something like "Function ()=>compileSass took 1s"
 ```
 
-### Using `time()` :
+### Using `time()` : 
 
 ```javascript
 import {time} from 'hrtime-now'
@@ -73,31 +70,25 @@ const t2 = time(t1)
 console.log(`Task took ${t2/1000000}` milliseconds`)
 ```
 
-**Note**: If you are not using ecma6 modules, you can }require()now()` like this:
+**Note**:  If you are not using ecma6 modules, you can }require()` `now()` like this: 
 
 ```javascript
 const now = require('hrtime-now').now
 ```
 
-### Working Example:
+### Working Example: 
 
-const now = require("hrtime-now").now const t0 = now() console.log(`the task took ${(now()-t0)/1000} milliseconds`)
+<script src="https://embed.runkit.com" data-element-id="my-element"></script>
+<div id="my-element">
+const now = require("hrtime-now").now
+const t0 = now()
+console.log(`the task took ${(now()-t0)/1000} milliseconds`)
+</div>
 
-API documentation
------------------
+## API documentation
 
 [API](https://github.com/cancerberoSgx/hrtime-now/blob/master/docs/modules/_index_.md)
 
-TODO
-----
+## TODO
 
-*   asynchronous
-
-## Index
-
-### External modules
-
-* ["index"](modules/_index_.md)
-
----
-
+ * asynchronous

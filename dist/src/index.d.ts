@@ -54,4 +54,4 @@ export declare function timeFrom(ns: number): string;
  * @param work
  * @param onEnd
  */
-export declare function fromNow<T>(work: () => T, onEnd: (prettyMs: string, fnHint: string, msElapsed: number, t0: number, t1: number) => any, fnHintBuilder?: (fn: typeof work) => string): T;
+export declare function fromNow<T>(work: () => Promise<T>, onEnd: (prettyMs: string, fnHint: string, msElapsed: number, t0: number, t1: number) => any, fnHintBuilder?: (fn: typeof work) => string): Promise<T>;

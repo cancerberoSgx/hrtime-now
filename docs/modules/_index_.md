@@ -1,4 +1,4 @@
-[hrtime-now](../README.md) > ["index"](../modules/_index_.md)
+[hrtime-now](../README.md) › [Globals](../globals.md) › ["index"](_index_.md)
 
 # External module: "index"
 
@@ -7,31 +7,25 @@
 ### Functions
 
 * [fromNow](_index_.md#fromnow)
-* [now](_index_.md#now)
+* [now](_index_.md#const-now)
 * [time](_index_.md#time)
 * [timeFrom](_index_.md#timefrom)
 
----
-
 ## Functions
-
-<a id="fromnow"></a>
 
 ###  fromNow
 
-▸ **fromNow**T(work: *`function`*, onEnd: *`function`*, fnHintBuilder?: *`function`*): `T`
+▸ **fromNow**<**T**>(`work`: function, `onEnd`: function, `fnHintBuilder`: function): *Promise‹T›*
 
-*Defined in [index.ts:76](https://github.com/cancerberoSgx/hrtime-now/blob/d6cd79e/src/index.ts#L76)*
+*Defined in [index.ts:77](https://github.com/cancerberoSgx/hrtime-now/blob/99c5df8/src/index.ts#L77)*
 
 Example:
-
 ```javascript
 const result = fromNow(
   ()=>compileSass('*.scss),
   t=>console.log(`sass compilation took ${t}`)
 )
 ```
-
 or implement a logger function factory and don't worry about messages anymore:
 
 ```js
@@ -43,78 +37,101 @@ const result = logTime(() => compileSass('*.scss'))
 
 **Type parameters:**
 
-#### T 
+▪ **T**
+
 **Parameters:**
 
-| Param | Type | Default value | Description |
-| ------ | ------ | ------ | ------ |
-| work | `function` | - |  - |
-| onEnd | `function` | - |   |
-| `Default value` fnHintBuilder | `function` |  defaultFnHintBuilder |
+▪ **work**: *function*
 
-**Returns:** `T`
+▸ (): *Promise‹T›*
+
+▪ **onEnd**: *function*
+
+▸ (`prettyMs`: string, `fnHint`: string, `msElapsed`: number, `t0`: number, `t1`: number): *any*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`prettyMs` | string |
+`fnHint` | string |
+`msElapsed` | number |
+`t0` | number |
+`t1` | number |
+
+▪`Default value`  **fnHintBuilder**: *function*=  defaultFnHintBuilder
+
+▸ (`fn`: function): *string*
+
+**Parameters:**
+
+▪ **fn**: *function*
+
+▸ (): *Promise‹T›*
+
+**Returns:** *Promise‹T›*
 
 ___
-<a id="now"></a>
 
-### `<Const>` now
+### `Const` now
 
-▸ **now**(): `number`
+▸ **now**(): *number*
 
-*Defined in [index.ts:35](https://github.com/cancerberoSgx/hrtime-now/blob/d6cd79e/src/index.ts#L35)*
+*Defined in [index.ts:37](https://github.com/cancerberoSgx/hrtime-now/blob/99c5df8/src/index.ts#L37)*
 
-Returns a timestamp like `Date.now()` but in this case the timestamp means nothing special. Just extracting two `now()` calls will give the difference between the two in nanoseconds, as shown in the following example:
+Returns a timestamp like `Date.now()` but in this case the timestamp means nothing special.
+Just extracting two `now()` calls will give the difference between the two in nanoseconds,
+as shown in the following example:
 
 ```javascript
-let t0 = now()
+  let t0 = now()
   // execute some task...
   console.log(`the task took ${(now()-t0)/1000000} milliseconds`)
 ```
 
-**Returns:** `number`
+**Returns:** *number*
 
 ___
-<a id="time"></a>
 
 ###  time
 
-▸ **time**(): [`number`, `number`]
+▸ **time**(): *[number, number]*
 
-▸ **time**(input: *[`number`, `number`]*): `number`
-
-*Defined in [index.ts:11](https://github.com/cancerberoSgx/hrtime-now/blob/d6cd79e/src/index.ts#L11)*
+*Defined in [index.ts:13](https://github.com/cancerberoSgx/hrtime-now/blob/99c5df8/src/index.ts#L13)*
 
 Usage:
 
 ```javascript
-let t1 = time()
+  let t1 = time()
   // execute some task....
   const t2 = time(t1)
   console.log(`the task took ${t2}` nanoseconds`)
 ```
 
-**Returns:** [`number`, `number`]
+**Returns:** *[number, number]*
 
-*Defined in [index.ts:12](https://github.com/cancerberoSgx/hrtime-now/blob/d6cd79e/src/index.ts#L12)*
+▸ **time**(`input`: [number, number]): *number*
+
+*Defined in [index.ts:14](https://github.com/cancerberoSgx/hrtime-now/blob/99c5df8/src/index.ts#L14)*
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| input | [`number`, `number`] |
+Name | Type |
+------ | ------ |
+`input` | [number, number] |
 
-**Returns:** `number`
+**Returns:** *number*
 
 ___
-<a id="timefrom"></a>
 
 ###  timeFrom
 
-▸ **timeFrom**(ns: *`number`*): `string`
+▸ **timeFrom**(`ns`: number): *string*
 
-*Defined in [index.ts:54](https://github.com/cancerberoSgx/hrtime-now/blob/d6cd79e/src/index.ts#L54)*
+*Defined in [index.ts:55](https://github.com/cancerberoSgx/hrtime-now/blob/99c5df8/src/index.ts#L55)*
 
-Pretty print the difference between given time (previouslytaken with `now()` and current time). Example:
+Pretty print the difference between given time (previouslytaken with `now()` and current time).
+Example:
 
 ```javascript
 var t0 = now()
@@ -126,11 +143,8 @@ That could print something like *somehing took 1m 29s"
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| ns | `number` |
+Name | Type |
+------ | ------ |
+`ns` | number |
 
-**Returns:** `string`
-
-___
-
+**Returns:** *string*
